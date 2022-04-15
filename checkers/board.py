@@ -6,7 +6,6 @@ from .figure import Figure
 class Board:
     def __init__(self):
         self.board = []
-        #self.selected_piece = None
         self.red_left = self.white_left = 12
         self.red_queen = self.white_queen = 0
         self.create_board()
