@@ -12,7 +12,6 @@ class Game:
     def winner(self):
         return self.board.winner()
 
-
     def update(self):
         self.board.draw(self.win)
         self.draw_valid_moves(self.valid_moves)
@@ -26,13 +25,34 @@ class Game:
         self.board = Board()
         self.turn = RED
         self.valid_moves = {}
+        self.flag_step_before = False
 
     def select(self, row, col):
         if self.selected:
-            result = self._move(row, col)
-            if not result:
-                self.selected = None
-                self.select(row, col)
+            if self.flag_step_before and (row, col) in self.valid_moves or not self.flag_step_before:
+                result = self._move(row, col)
+                if result == 2:
+                    self.selected = None
+                    self.select(row, col)
+                if result == 0:
+                    figure = self.board.get_figure(row, col)
+                    old_valid_moves = self.valid_moves
+                    self.valid_moves = self.board.get_valid_moves(figure)
+                    print(self.valid_moves)
+                    check = False
+                    for i in self.valid_moves.values():
+                        if len(i):
+                            check = True
+                    if check and old_valid_moves[(row, col)]:
+                        self.selected = self.board.get_figure(row, col)
+                        self.flag_step_before = True
+                        return True
+                    else:
+                        self.change_turn()
+                        self.selected = None
+                        return False
+            else:
+                return False
 
         figure = self.board.get_figure(row, col)
         if figure != 0 and figure.color == self.turn:
@@ -50,13 +70,16 @@ class Game:
             skipped = self.valid_moves[(row, col)]
             if skipped:
                 self.board.remove(skipped)
-            self.change_turn()
+                return 0  # skip figure, so ve need look again, for another move
+            else:
+                self.change_turn()
         else:
-            return False
+            return 2  # False
 
-        return True
+        return 1  # True
 
     def change_turn(self):
+        self.flag_step_before = False
         self.valid_moves = {}
         if self.turn == RED:
             self.turn = WHITE
