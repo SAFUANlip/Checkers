@@ -62,12 +62,12 @@ class Board:
         self.board[figure.row][figure.col], self.board[row][col] = self.board[row][col], self.board[figure.row][figure.col]
         figure.move(row, col)
 
-        if row == ROWS - 1 and figure.color == WHITE:
+        if row == ROWS - 1 and figure.color == WHITE and not figure.queen:
             self.white_queen += 1
             figure.turn_queen()
             print(f"red: {self.red_queen}, white: {self.white_queen}")
 
-        elif row == 0 and figure.color == RED:
+        elif row == 0 and figure.color == RED and not figure.queen:
             self.red_queen += 1
             figure.turn_queen()
             print(f"red: {self.red_queen}, white: {self.white_queen}")
@@ -81,15 +81,25 @@ class Board:
         right = figure.col + 1
         row = figure.row
 
-        if figure.color == RED or figure.queen:
-            moves.update(self._traverse_left(row - 1, max(row-3, -1), -1, figure.color, left))
-            moves.update(self._traverse_right(row - 1, max(row-3, -1), -1, figure.color, right))
-        if figure.color == WHITE or figure.queen:
-            moves.update(self._traverse_left(row + 1, min(row + 3, ROWS), 1, figure.color, left))
-            moves.update(self._traverse_right(row + 1, min(row + 3, ROWS), 1, figure.color, right))
+        if figure.color == RED:
+            moves.update(self._traverse_left(row - 1, max(row-3, -1), -1, figure, left))
+            moves.update(self._traverse_right(row - 1, max(row-3, -1), -1, figure, right))
+        if figure.color == WHITE:
+            moves.update(self._traverse_left(row + 1, min(row + 3, ROWS), 1, figure, left))
+            moves.update(self._traverse_right(row + 1, min(row + 3, ROWS), 1, figure, right))
+        if figure.queen:
+            moves.update(self._traverse_left(row - 1, -1, -1, figure, left))
+            moves.update(self._traverse_right(row - 1, -1, -1, figure, right))
+            moves.update(self._traverse_left(row + 1, ROWS, 1, figure, left))
+            moves.update(self._traverse_right(row + 1, ROWS, 1, figure, right))
         return moves
 
-    def _traverse_left(self, start, stop, step, color, left):
+    # def _travers_left_queen(self, start, stop, step, color, left):
+    #     moves = {}
+    #     last = []
+    #     return moves
+
+    def _traverse_left(self, start, stop, step, figure, left):
         moves = {}
         last = []
         for r in range(start, stop, step):
@@ -98,17 +108,19 @@ class Board:
             current = self.board[r][left]
             if current == 0:
                 moves[(r, left)] = last  # if we saw the figure what we need pass
-                if last:
-                    left -= 1
+                if not figure.queen:
+                    break
+            elif current.color == figure.color:
                 break
-            elif current.color == color:
+            elif last and (last[0].row == r-1 and last[0].col == left+1\
+                           or last[0].row == r+1 and last[0].col == left+1):
                 break
             else:
                 last = [current]
             left -= 1
         return moves
 
-    def _traverse_right(self, start, stop, step, color, right):
+    def _traverse_right(self, start, stop, step, figure, right):
         moves = {}
         last = []
         for r in range(start, stop, step):
@@ -117,10 +129,12 @@ class Board:
             current = self.board[r][right]
             if current == 0:
                 moves[(r, right)] = last
-                if last:
-                    right += 1
+                if not figure.queen:
+                    break
+            elif current.color == figure.color:
                 break
-            elif current.color == color:
+            elif last and (last[0].row == r-1 and last[0].col == right-1\
+                           or last[0].row == r+1 and last[0].col == right-1):
                 break
             else:
                 last = [current]

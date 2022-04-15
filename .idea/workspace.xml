@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="567fe6ac-76c0-4940-96a8-fab49c313a58" name="Default Changelist" comment="First_try">
+    <list default="true" id="567fe6ac-76c0-4940-96a8-fab49c313a58" name="Default Changelist" comment="Fixed_1. If a piece can double jump over multiple pieces and land on the same destination square you can pick which exact move to make">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/checkers/board.py" beforeDir="false" afterPath="$PROJECT_DIR$/checkers/board.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/checkers/game.py" beforeDir="false" afterPath="$PROJECT_DIR$/checkers/game.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,6 +61,14 @@
       <option name="presentableId" value="Default" />
       <updated>1649948509910</updated>
     </task>
+    <task id="LOCAL-00001" summary="Fixed_1. If a piece can double jump over multiple pieces and land on the same destination square you can pick which exact move to make">
+      <created>1649988096735</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1649988096735</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -76,13 +83,17 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Fixed_1. If a piece can double jump over multiple pieces and land on the same destination square you can pick which exact move to make" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed_1. If a piece can double jump over multiple pieces and land on the same destination square you can pick which exact move to make" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/checkers/game.py</url>
-          <line>41</line>
-          <option name="timeStamp" value="20" />
+          <url>file://$PROJECT_DIR$/checkers/board.py</url>
+          <line>93</line>
+          <option name="timeStamp" value="23" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
