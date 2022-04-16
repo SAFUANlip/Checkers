@@ -56,6 +56,17 @@ class Board:
 
         return None
 
+    def evaluate(self):
+        return self.white_left - self.red_left + (self.white_queen * 0.5 - self.red_queen * 0.5)
+
+    def get_all_figures(self, color):
+        figures = []
+        for row in self.board:
+            for figure in row:
+                if figure !=0 and figure.color == color:
+                    figures.append(figure)
+        return figures
+
     def move(self, figure, row, col):
         # swapp
         self.board[figure.row][figure.col], self.board[row][col] = self.board[row][col], self.board[figure.row][figure.col]

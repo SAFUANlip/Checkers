@@ -1,13 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="567fe6ac-76c0-4940-96a8-fab49c313a58" name="Default Changelist" comment="Fixed_1. If a piece can double jump over multiple pieces and land on the same destination square you can pick which exact move to make">
+    <list default="true" id="567fe6ac-76c0-4940-96a8-fab49c313a58" name="Default Changelist" comment="before write AI, still have little mistakes">
+      <change afterPath="$PROJECT_DIR$/minimax/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Checkers.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Checkers.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/checkers/board.py" beforeDir="false" afterPath="$PROJECT_DIR$/checkers/board.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/checkers/game.py" beforeDir="false" afterPath="$PROJECT_DIR$/checkers/game.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -26,10 +39,19 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/venv" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Checkers\minimax" />
+      <recent name="D:\Checkers\venv" />
+      <recent name="D:\Checkers" />
+      <recent name="D:\Checkers\checkers" />
+    </key>
   </component>
   <component name="RunManager">
-    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="Checkers" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -53,7 +75,6 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.main" />
-        <item itemvalue="Python.main" />
       </list>
     </recent_temporary>
   </component>
@@ -73,7 +94,14 @@
       <option name="project" value="LOCAL" />
       <updated>1649988096735</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="before write AI, still have little mistakes">
+      <created>1650062055776</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1650062055776</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -102,14 +130,15 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Fixed_1. If a piece can double jump over multiple pieces and land on the same destination square you can pick which exact move to make" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed_1. If a piece can double jump over multiple pieces and land on the same destination square you can pick which exact move to make" />
+    <MESSAGE value="before write AI, still have little mistakes" />
+    <option name="LAST_COMMIT_MESSAGE" value="before write AI, still have little mistakes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/checkers/board.py</url>
-          <line>93</line>
+          <line>103</line>
           <option name="timeStamp" value="23" />
         </line-breakpoint>
       </breakpoints>

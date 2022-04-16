@@ -91,3 +91,10 @@ class Game:
             row, col = move
             pygame.draw.circle(self.win, BLUE, (col * SQUARE_SIZE + SQUARE_SIZE//2,\
                                                 row * SQUARE_SIZE + SQUARE_SIZE//2), 15)
+
+    def get_board(self):
+        return self.board
+
+    def ai_move(self, board):
+        self.board = board
+        self.change_turn()
